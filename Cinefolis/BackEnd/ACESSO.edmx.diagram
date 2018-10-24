@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="836c7ae88dc04842954646335454b510" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="DBModel.C__RefactorLog" Width="1.5" PointX="7.625" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.CONTATO" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.CONTATO" Width="1.5" PointX="4.875" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.EVENTO" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.EXIBICAO" Width="1.5" PointX="7.5" PointY="24.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel.GENERO" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
