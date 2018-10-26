@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="DBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -395,7 +395,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBModelStoreContainer">
+        <EntityContainer Name="DBModel1StoreContainer">
           <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTATO" EntityType="Self.CONTATO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
@@ -499,7 +499,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="C__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -932,7 +932,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AcessoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="CONTATO" EntityType="Self.CONTATO" />
           <EntitySet Name="EVENTO" EntityType="Self.EVENTO" />
@@ -1037,16 +1037,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DBModelStoreContainer" CdmEntityContainer="DBEntities1">
+        <EntityContainerMapping StorageEntityContainer="DBModel1StoreContainer" CdmEntityContainer="AcessoEntities">
           <EntitySetMapping Name="C__RefactorLog">
-            <EntityTypeMapping TypeName="DBModel.C__RefactorLog">
+            <EntityTypeMapping TypeName="DBModel1.C__RefactorLog">
               <MappingFragment StoreEntitySet="__RefactorLog">
                 <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CONTATO">
-            <EntityTypeMapping TypeName="DBModel.CONTATO">
+            <EntityTypeMapping TypeName="DBModel1.CONTATO">
               <MappingFragment StoreEntitySet="CONTATO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_USUARIO1" ColumnName="ID_USUARIO1" />
@@ -1056,7 +1056,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EVENTO">
-            <EntityTypeMapping TypeName="DBModel.EVENTO">
+            <EntityTypeMapping TypeName="DBModel1.EVENTO">
               <MappingFragment StoreEntitySet="EVENTO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_MOVIE" ColumnName="ID_MOVIE" />
@@ -1065,7 +1065,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EXIBICAO">
-            <EntityTypeMapping TypeName="DBModel.EXIBICAO">
+            <EntityTypeMapping TypeName="DBModel1.EXIBICAO">
               <MappingFragment StoreEntitySet="EXIBICAO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
@@ -1074,7 +1074,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GENERO">
-            <EntityTypeMapping TypeName="DBModel.GENERO">
+            <EntityTypeMapping TypeName="DBModel1.GENERO">
               <MappingFragment StoreEntitySet="GENERO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
@@ -1083,7 +1083,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LIKE_GENERO">
-            <EntityTypeMapping TypeName="DBModel.LIKE_GENERO">
+            <EntityTypeMapping TypeName="DBModel1.LIKE_GENERO">
               <MappingFragment StoreEntitySet="LIKE_GENERO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
@@ -1092,7 +1092,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LIKE_LOCAL">
-            <EntityTypeMapping TypeName="DBModel.LIKE_LOCAL">
+            <EntityTypeMapping TypeName="DBModel1.LIKE_LOCAL">
               <MappingFragment StoreEntitySet="LIKE_LOCAL">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
@@ -1102,7 +1102,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LIKE_MOVIES">
-            <EntityTypeMapping TypeName="DBModel.LIKE_MOVIES">
+            <EntityTypeMapping TypeName="DBModel1.LIKE_MOVIES">
               <MappingFragment StoreEntitySet="LIKE_MOVIES">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
@@ -1112,7 +1112,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOCAL">
-            <EntityTypeMapping TypeName="DBModel.LOCAL">
+            <EntityTypeMapping TypeName="DBModel1.LOCAL">
               <MappingFragment StoreEntitySet="LOCAL">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_CRIADOR_PAGINA" ColumnName="ID_CRIADOR_PAGINA" />
@@ -1124,7 +1124,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LOCAL_GENERO">
-            <EntityTypeMapping TypeName="DBModel.LOCAL_GENERO">
+            <EntityTypeMapping TypeName="DBModel1.LOCAL_GENERO">
               <MappingFragment StoreEntitySet="LOCAL_GENERO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_LOCAL" ColumnName="ID_LOCAL" />
@@ -1134,7 +1134,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MOVIE">
-            <EntityTypeMapping TypeName="DBModel.MOVIE">
+            <EntityTypeMapping TypeName="DBModel1.MOVIE">
               <MappingFragment StoreEntitySet="MOVIE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_CRIADOR_PAGINA" ColumnName="ID_CRIADOR_PAGINA" />
@@ -1149,7 +1149,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MOVIE_GENERO">
-            <EntityTypeMapping TypeName="DBModel.MOVIE_GENERO">
+            <EntityTypeMapping TypeName="DBModel1.MOVIE_GENERO">
               <MappingFragment StoreEntitySet="MOVIE_GENERO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_MOVIE" ColumnName="ID_MOVIE" />
@@ -1158,7 +1158,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="POSTAGEM">
-            <EntityTypeMapping TypeName="DBModel.POSTAGEM">
+            <EntityTypeMapping TypeName="DBModel1.POSTAGEM">
               <MappingFragment StoreEntitySet="POSTAGEM">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="LOCALIZACAO" ColumnName="LOCALIZACAO" />
@@ -1172,7 +1172,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USUARIO">
-            <EntityTypeMapping TypeName="DBModel.USUARIO">
+            <EntityTypeMapping TypeName="DBModel1.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd
+namespace BackEnd.Acesso
 {
     using System;
     using System.Collections.Generic;

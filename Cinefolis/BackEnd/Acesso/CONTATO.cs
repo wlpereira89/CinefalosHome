@@ -7,17 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd
+namespace BackEnd.Acesso
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class EXIBICAO
+    public partial class CONTATO
     {
         public int ID { get; set; }
-        public Nullable<int> ID_EVENTO { get; set; }
-        public Nullable<System.DateTime> HORARIO { get; set; }
+        public int ID_USUARIO1 { get; set; }
+        public int ID_USUARIO2 { get; set; }
+        public int STATUS { get; set; }
     
-        public virtual EVENTO EVENTO { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
+        public virtual USUARIO USUARIO1 { get; set; }
     }
 }

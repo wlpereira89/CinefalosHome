@@ -7,18 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd
+namespace BackEnd.Acesso
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class MOVIE_GENERO
+    public partial class C__RefactorLog
     {
-        public int ID { get; set; }
-        public int ID_MOVIE { get; set; }
-        public int ID_GENERO { get; set; }
-    
-        public virtual GENERO GENERO { get; set; }
-        public virtual MOVIE MOVIE { get; set; }
+        public System.Guid OperationKey { get; set; }
     }
 }

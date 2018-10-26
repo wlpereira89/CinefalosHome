@@ -7,17 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd
+namespace BackEnd.Acesso
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class LIKE_LOCAL
+    public partial class LIKE_GENERO
     {
         public int ID { get; set; }
         public int ID_USUARIO { get; set; }
         public int ID_GENERO { get; set; }
-        public string COMENTARIO { get; set; }
     
         public virtual GENERO GENERO { get; set; }
         public virtual USUARIO USUARIO { get; set; }

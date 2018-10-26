@@ -7,33 +7,34 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd
+namespace BackEnd.Acesso
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class GENERO
+    public partial class LOCAL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GENERO()
+        public LOCAL()
         {
-            this.LIKE_LOCAL = new HashSet<LIKE_LOCAL>();
-            this.LIKE_GENERO = new HashSet<LIKE_GENERO>();
+            this.EVENTO = new HashSet<EVENTO>();
             this.LOCAL_GENERO = new HashSet<LOCAL_GENERO>();
-            this.MOVIE_GENERO = new HashSet<MOVIE_GENERO>();
+            this.POSTAGEM = new HashSet<POSTAGEM>();
         }
     
         public int ID { get; set; }
+        public int ID_CRIADOR_PAGINA { get; set; }
+        public string ENDERECO { get; set; }
         public string NOME { get; set; }
         public string DESCRICAO { get; set; }
+        public string LINK { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LIKE_LOCAL> LIKE_LOCAL { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LIKE_GENERO> LIKE_GENERO { get; set; }
+        public virtual ICollection<EVENTO> EVENTO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOCAL_GENERO> LOCAL_GENERO { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MOVIE_GENERO> MOVIE_GENERO { get; set; }
+        public virtual ICollection<POSTAGEM> POSTAGEM { get; set; }
     }
 }

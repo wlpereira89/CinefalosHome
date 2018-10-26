@@ -7,26 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd
+namespace BackEnd.Acesso
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class EVENTO
+    public partial class POSTAGEM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EVENTO()
+        public POSTAGEM()
         {
-            this.EXIBICAO = new HashSet<EXIBICAO>();
+            this.POSTAGEM1 = new HashSet<POSTAGEM>();
         }
     
         public int ID { get; set; }
-        public int ID_MOVIE { get; set; }
-        public int ID_LOCAL { get; set; }
+        public string LOCALIZACAO { get; set; }
+        public int ID_USUARIO { get; set; }
+        public System.DateTime DATA_HORA { get; set; }
+        public Nullable<int> ID_MOVIE { get; set; }
+        public Nullable<int> ID_LOCAL { get; set; }
+        public string TEXTO { get; set; }
+        public Nullable<int> ID_POSTAGEM { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EXIBICAO> EXIBICAO { get; set; }
         public virtual LOCAL LOCAL { get; set; }
         public virtual MOVIE MOVIE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<POSTAGEM> POSTAGEM1 { get; set; }
+        public virtual POSTAGEM POSTAGEM2 { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
     }
 }

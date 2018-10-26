@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd
+namespace BackEnd.Acesso
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DBEntities1 : DbContext
+    public partial class AcessoEntities : DbContext
     {
-        public DBEntities1()
-            : base("name=DBEntities1")
+        public AcessoEntities()
+            : base("name=AcessoEntities")
         {
         }
     

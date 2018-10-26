@@ -141,72 +141,73 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ACESSO.Context.cs">
+    <Compile Include="Acesso\Banco.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ACESSO.Context.tt</DependentUpon>
+      <DependentUpon>Banco.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACESSO.cs">
+    <Compile Include="Acesso\Banco.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ACESSO.tt</DependentUpon>
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="ACESSO.Designer.cs">
+    <Compile Include="Acesso\Banco.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ACESSO.edmx</DependentUpon>
+      <DependentUpon>Banco.edmx</DependentUpon>
     </Compile>
-    <Compile Include="CONTATO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\CONTATO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="C__RefactorLog.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\C__RefactorLog.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="EVENTO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\EVENTO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="EXIBICAO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\EXIBICAO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="GENERO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\GENERO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="LIKE_GENERO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\LIKE_GENERO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="LIKE_LOCAL.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\LIKE_LOCAL.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="LIKE_MOVIES.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\LIKE_MOVIES.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="LOCAL.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\LOCAL.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="LOCAL_GENERO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\LOCAL_GENERO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="MOVIE.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\MOVIE.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="MOVIE_GENERO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\MOVIE_GENERO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
-    <Compile Include="POSTAGEM.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
+    <Compile Include="Acesso\POSTAGEM.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Acesso\USUARIO.cs">
+      <DependentUpon>Banco.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="USUARIO.cs">
-      <DependentUpon>ACESSO.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="ACESSO.edmx">
+    <EntityDeploy Include="Acesso\Banco.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ACESSO.Designer.cs</LastGenOutput>
+      <LastGenOutput>Banco.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ACESSO.edmx.diagram">
-      <DependentUpon>ACESSO.edmx</DependentUpon>
+    <None Include="Acesso\Banco.edmx.diagram">
+      <DependentUpon>Banco.edmx</DependentUpon>
     </None>
     <None Include="App.Config" />
     <None Include="packages.config" />
@@ -215,15 +216,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ACESSO.Context.tt">
+    <Content Include="Acesso\Banco.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ACESSO.edmx</DependentUpon>
-      <LastGenOutput>ACESSO.Context.cs</LastGenOutput>
+      <DependentUpon>Banco.edmx</DependentUpon>
+      <LastGenOutput>Banco.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ACESSO.tt">
+    <Content Include="Acesso\Banco.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ACESSO.edmx</DependentUpon>
-      <LastGenOutput>ACESSO.cs</LastGenOutput>
+      <DependentUpon>Banco.edmx</DependentUpon>
+      <LastGenOutput>Banco.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
