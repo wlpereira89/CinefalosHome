@@ -5,12 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using BackEnd.Acesso;
 
-namespace BackEnd.Model
-{
-    public static class Usuario
-    {
-        public static bool cadastrarUsuario(USUARIO user)
-        {
+namespace BackEnd.Model {
+    public static class Usuario {
+        public static bool cadastrarUsuario(USUARIO user) {
             try {
                 AcessoEntities db = new AcessoEntities();
                 db.USUARIO.Add(user);
@@ -19,12 +16,10 @@ namespace BackEnd.Model
             catch {
                 throw;
             }
-            return false;
+            return true;
         }
-        public static bool cadastrarUsuario(string nome, string sobrenome, string endereco, string foto, string detalhes, string senha)
-        {
-            try
-            {
+        public static bool cadastrarUsuario(string nome, string sobrenome, string endereco, string foto, string detalhes, string senha) {
+            try {
                 AcessoEntities db = new AcessoEntities();
                 USUARIO user = new USUARIO {
                     NOME = nome,
@@ -37,11 +32,10 @@ namespace BackEnd.Model
                 db.USUARIO.Add(user);
                 db.SaveChanges();
             }
-            catch
-            {
+            catch {
                 throw;
             }
-            return false;
+            return true;
         }
     }
 }

@@ -198,6 +198,8 @@
     <Compile Include="Acesso\USUARIO.cs">
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Contato.cs" />
+    <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
