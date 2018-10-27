@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinefolis.Views.View1">
+    <ContentView.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout Spacing="20">
+                    <Label Text="Aplicativo" 
+                           Font="30"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                            FontAttributes="Bold"                           
+                     />
+                    <Label Text="Digite o seu email e senha para Acesso" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="emailEntry"
+                           Placeholder="Digite seu e-mail"
+                           Keyboard="Email"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+
+                    </Entry>
+
+                    <Label Text="Digite Sua senha" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="SenhaEntry"
+                           Placeholder="Digite sua Senha"
+                           IsPassword="True"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+
+                    </Entry>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

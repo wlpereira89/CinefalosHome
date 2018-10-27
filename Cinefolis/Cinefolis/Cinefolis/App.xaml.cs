@@ -14,7 +14,7 @@ namespace Cinefolis
             InitializeComponent();
 
 
-            MainPage = new MainPage();
+            MainPage = new View1();
         }
 
         protected override void OnStart()
