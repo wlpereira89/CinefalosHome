@@ -34,7 +34,7 @@ namespace BackEnd.Model {
             }
             return true;
         }
-        public static bool incluirGenero(int idLocal, int idGenero) {
+        public static bool incluirGeneroLocal(int idLocal, int idGenero) {
             try {
                 AcessoEntities db = new AcessoEntities();
                 LOCAL_GENERO lg = new LOCAL_GENERO {
@@ -48,7 +48,7 @@ namespace BackEnd.Model {
             }
             return true;
         }
-        public static bool incluirGeneros(int idLocal, int[] idsGenero) {
+        public static bool incluirGenerosLocal(int idLocal, int[] idsGenero) {
             try {
                 AcessoEntities db = new AcessoEntities();
                 foreach (int idGenero in idsGenero) {

@@ -55,6 +55,37 @@ namespace BackEnd.Model {
             }
             return true;
         }
+        public static bool incluirGeneroMovie(int idMovie, int idGenero) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                MOVIE_GENERO lg = new MOVIE_GENERO {
+                    ID_MOVIE = idMovie,
+                    ID_GENERO = idGenero
+                };
+                db.MOVIE_GENERO.Add(lg);
+                db.SaveChanges();
+            } catch {
+                throw;
+            }
+            return true;
+        }
+        public static bool incluirGenerosMovie(int idMovie, int[] idsGenero) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                foreach(int idGenero in idsGenero) {
+                    MOVIE_GENERO lg = new MOVIE_GENERO {
+                        ID_MOVIE = idMovie,
+                        ID_GENERO = idGenero
+                    };
+                    db.MOVIE_GENERO.Add(lg);
+                }
+                db.SaveChanges();
+            } catch {
+                throw;
+            }
+            return true;
+        }
+
         public static MOVIE procurarMovie(int idMovie) {
             try {
                 AcessoEntities db = new AcessoEntities();                
