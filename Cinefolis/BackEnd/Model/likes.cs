@@ -21,6 +21,15 @@ namespace BackEnd.Model {
             }
             return true;
         }
+        public static int quantidadeLikesGenero (int idGenero) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                
+                return db.LIKE_GENERO.Where(like => like.ID_GENERO.Equals(idGenero)).Count();
+            } catch {
+                throw;
+            }
+        }
         public static bool likeLocal(int idUsuario, int idLocal) {
             try {
                 AcessoEntities db = new AcessoEntities();
@@ -35,6 +44,15 @@ namespace BackEnd.Model {
             }
             return true;
         }
+        public static int quantidadeLikesLocal(int idLocal) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+
+                return db.LIKE_LOCAL.Where(like => like.ID_LOCAL.Equals(idLocal)).Count();
+            } catch {
+                throw;
+            }
+        }
         public static bool likeMovie(int idUsuario, int idMovie) {
             try {
                 AcessoEntities db = new AcessoEntities();
@@ -48,6 +66,15 @@ namespace BackEnd.Model {
                 throw;
             }
             return true;
+        }
+        public static int quantidadeLikesMovie(int idMovie) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+
+                return db.LIKE_MOVIES.Where(like => like.ID_MOVIE.Equals(idMovie)).Count();
+            } catch {
+                throw;
+            }
         }
     }
 }
