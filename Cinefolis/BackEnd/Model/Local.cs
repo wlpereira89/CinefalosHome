@@ -18,18 +18,37 @@ namespace BackEnd.Model {
             }
             return true;
         }
-        public static bool cadastrarSerie(USUARIO usuario, string titulo, int temporadas, int eposodios, string capa) {
+        public static bool cadastrarLocalFisico(USUARIO usuario, string endereco, string nome, string descricao, string site) {
             try {
                 AcessoEntities db = new AcessoEntities();
                 LOCAL local = new LOCAL {
                     USUARIO = usuario,
-                    
+                    ENDERECO = endereco,
+                    NOME = nome,
+                    DESCRICAO = descricao,
+                    LINK = site
 
                 };
                 db.LOCAL.Add(local);
                 db.SaveChanges();
             }
             catch {
+                throw;
+            }
+            return true;
+        }
+        public static bool cadastrarLocalVirtal(USUARIO usuario, string endereco, string nome, string descricao, string link) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                LOCAL local = new LOCAL {
+                    USUARIO = usuario,
+                    NOME = nome,
+                    DESCRICAO = descricao,
+                    LINK = link
+                };
+                db.LOCAL.Add(local);
+                db.SaveChanges();
+            } catch {
                 throw;
             }
             return true;
