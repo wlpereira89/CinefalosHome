@@ -121,5 +121,26 @@ namespace BackEnd.Model {
                 throw;
             }
         }
+        public static List<LOCAL> listarLocaisPorGenero(GENERO genero) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                List<LOCAL_GENERO> todos = db.LOCAL_GENERO.Where(lg => lg.GENERO.Equals(genero)).ToList();
+                List<LOCAL> lista = new List<LOCAL>();
+                foreach(LOCAL_GENERO um in todos) {
+                    lista.Add(um.LOCAL);
+                }
+                return lista;
+            } catch {
+                throw;
+            }
+        }        
+        public static List<LOCAL> listarLocaisPorDescricao(string descricao) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.LOCAL.Where(l => l.DESCRICAO.Contains(descricao)).ToList();
+            } catch {
+                throw;
+            }
+        }
     }
 }
