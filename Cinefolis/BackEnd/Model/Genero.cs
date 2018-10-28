@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using BackEnd.Acesso;
 
 namespace BackEnd.Model {
-    public static class Usuario {
-        public static bool cadastrarUsuario(USUARIO user) {
+    public static class Genero {
+        public static bool cadastrarGenero(GENERO genero) {
             try {
                 AcessoEntities db = new AcessoEntities();
-                db.USUARIO.Add(user);
+                db.GENERO.Add(genero);
                 db.SaveChanges();
             }
             catch {
@@ -18,18 +18,15 @@ namespace BackEnd.Model {
             }
             return true;
         }
-        public static bool cadastrarUsuario(string nome, string sobrenome, string endereco, string foto, string detalhes, string senha) {
+        public static bool cadastrarGenero(string descricao, string nome) {
             try {
                 AcessoEntities db = new AcessoEntities();
-                USUARIO user = new USUARIO {
-                    NOME = nome,
-                    SOBRENOME = sobrenome,
-                    ENDERECO = endereco,
-                    LINK_FOTO = foto,
-                    DETALHES = detalhes,
-                    SENHA = senha
+                GENERO genero = new GENERO {
+                    DESCRICAO = descricao,
+                    NOME = nome
+                    
                 };
-                db.USUARIO.Add(user);
+                db.GENERO.Add(genero);
                 db.SaveChanges();
             }
             catch {
@@ -37,10 +34,10 @@ namespace BackEnd.Model {
             }
             return true;
         }
-        public static USUARIO procurarUsuario(int idUsuario) {
+        public static GENERO procurarGenero(int idGenero) {
             try {
                 AcessoEntities db = new AcessoEntities();                
-                return db.USUARIO.Find(idUsuario);
+                return db.GENERO.Find(idGenero);
             } catch {
                 throw;
             }            

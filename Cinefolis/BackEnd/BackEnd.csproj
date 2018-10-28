@@ -202,7 +202,9 @@
     <Compile Include="Model\Exibicao.cs" />
     <Compile Include="Model\Evento.cs" />
     <Compile Include="Model\Likes.cs" />
+    <Compile Include="Model\Local.cs" />
     <Compile Include="Model\Movie.cs" />
+    <Compile Include="Model\Genero.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

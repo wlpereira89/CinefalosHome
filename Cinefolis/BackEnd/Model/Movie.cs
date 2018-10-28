@@ -57,9 +57,8 @@ namespace BackEnd.Model {
         }
         public static MOVIE procurarMovie(int idMovie) {
             try {
-                AcessoEntities db = new AcessoEntities();
-                MOVIE movie = db.MOVIE.Find(idMovie);
-                return movie;
+                AcessoEntities db = new AcessoEntities();                
+                return db.MOVIE.Find(idMovie);
             } catch {
                 throw;
             }
