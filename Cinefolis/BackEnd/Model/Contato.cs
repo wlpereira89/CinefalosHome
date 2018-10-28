@@ -37,12 +37,19 @@ namespace BackEnd.Model {
         public static bool Reprovacao(int idSolicitacao) {
             try {
                 AcessoEntities db = new AcessoEntities();
-                db.CONTATO.Remove(db.CONTATO.Find(idSolicitacao));                
+                db.CONTATO.Remove(procurarSolicitacao(idSolicitacao));                
                 db.SaveChanges();
             } catch {
                 throw;
             }
             return true;
         }
-    }
+        public static CONTATO procurarSolicitacao(int idSolicitacao) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.CONTATO.Find(idSolicitacao);
+            } catch {
+                throw;
+            }
+        }
 }

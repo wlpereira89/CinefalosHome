@@ -196,4 +196,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ID_LOCAL" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="aa5b2e12-16b0-46c3-a6e0-418253c4232b" ChangeDateTime="10/28/2018 20:06:05">
+    <Property Name="ElementName" Value="[dbo].[USUARIO].[login]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[USUARIO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LOGIN" />
+  </Operation>
 </Operations>

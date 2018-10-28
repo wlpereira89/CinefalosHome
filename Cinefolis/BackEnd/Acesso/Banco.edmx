@@ -63,7 +63,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_USUARIO" Type="int" Nullable="false" />
           <Property Name="ID_LOCAL" Type="int" Nullable="false" />
-          <Property Name="COMENTARIO" Type="nchar" MaxLength="10" />
+          <Property Name="COMENTARIO" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="LIKE_MOVIES">
           <Key>
@@ -143,6 +143,7 @@
           <Property Name="ENDERECO" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="DETALHES" Type="varchar(max)" />
           <Property Name="LINK_FOTO" Type="varchar" MaxLength="50" />
+          <Property Name="LOGIN" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_CONTATOS_USUARIOS">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
@@ -668,6 +669,7 @@
           <NavigationProperty Name="MOVIE" Relationship="Self.FK_MOVIE_USUARIO" FromRole="USUARIO" ToRole="MOVIE" />
           <NavigationProperty Name="POSTAGEM" Relationship="Self.FK_POSTAGEM_USUARIO" FromRole="USUARIO" ToRole="POSTAGEM" />
           <NavigationProperty Name="LIKE_LOCAL" Relationship="DBModel1.FK_LIKE_LOCAL_USUARIO" FromRole="USUARIO" ToRole="LIKE_LOCAL" />
+          <Property Name="LOGIN" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_CONTATOS_USUARIOS">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
@@ -1005,7 +1007,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
           <Property Name="ID_LOCAL" Type="Int32" Nullable="false" />
-          <Property Name="COMENTARIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="LOCAL" Relationship="DBModel1.FK_LIKE_LOCAL_LOCAL" FromRole="LIKE_LOCAL" ToRole="LOCAL" />
           <NavigationProperty Name="USUARIO" Relationship="DBModel1.FK_LIKE_LOCAL_USUARIO" FromRole="LIKE_LOCAL" ToRole="USUARIO" />
         </EntityType>
@@ -1166,6 +1168,7 @@
           <EntitySetMapping Name="USUARIO">
             <EntityTypeMapping TypeName="DBModel1.USUARIO">
               <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NOME" ColumnName="NOME" />
                 <ScalarProperty Name="SOBRENOME" ColumnName="SOBRENOME" />

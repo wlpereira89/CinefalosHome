@@ -34,6 +34,7 @@ namespace BackEnd.Acesso
         public string ENDERECO { get; set; }
         public string DETALHES { get; set; }
         public string LINK_FOTO { get; set; }
+        public string LOGIN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONTATO> CONTATO { get; set; }
