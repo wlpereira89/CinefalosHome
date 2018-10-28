@@ -62,7 +62,7 @@ namespace BackEnd.Model {
             }
             return false;
         }
-        public static string GerarHashMd5(string input) {
+        private static string GerarHashMd5(string input) {
             MD5 md5Hash = MD5.Create();
             // Converter a String para array de bytes, que é como a biblioteca trabalha.
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
