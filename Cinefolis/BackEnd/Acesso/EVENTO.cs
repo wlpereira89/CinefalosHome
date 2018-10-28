@@ -23,6 +23,7 @@ namespace BackEnd.Acesso
         public int ID { get; set; }
         public int ID_MOVIE { get; set; }
         public int ID_LOCAL { get; set; }
+        public string DESCRICAO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EXIBICAO> EXIBICAO { get; set; }

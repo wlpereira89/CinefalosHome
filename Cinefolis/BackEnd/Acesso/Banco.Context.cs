@@ -31,7 +31,6 @@ namespace BackEnd.Acesso
         public virtual DbSet<EXIBICAO> EXIBICAO { get; set; }
         public virtual DbSet<GENERO> GENERO { get; set; }
         public virtual DbSet<LIKE_GENERO> LIKE_GENERO { get; set; }
-        public virtual DbSet<LIKE_LOCAL> LIKE_LOCAL { get; set; }
         public virtual DbSet<LIKE_MOVIES> LIKE_MOVIES { get; set; }
         public virtual DbSet<LOCAL> LOCAL { get; set; }
         public virtual DbSet<LOCAL_GENERO> LOCAL_GENERO { get; set; }
@@ -39,5 +38,6 @@ namespace BackEnd.Acesso
         public virtual DbSet<MOVIE_GENERO> MOVIE_GENERO { get; set; }
         public virtual DbSet<POSTAGEM> POSTAGEM { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<LIKE_LOCAL> LIKE_LOCAL { get; set; }
     }
 }

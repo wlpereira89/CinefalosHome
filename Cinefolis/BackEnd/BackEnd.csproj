@@ -199,6 +199,9 @@
       <DependentUpon>Banco.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Contato.cs" />
+    <Compile Include="Model\Exibicao.cs" />
+    <Compile Include="Model\Evento.cs" />
+    <Compile Include="Model\Likes.cs" />
     <Compile Include="Model\Movie.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -210,6 +213,7 @@
     </EntityDeploy>
     <None Include="Acesso\Banco.edmx.diagram">
       <DependentUpon>Banco.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="App.Config" />
     <None Include="packages.config" />
@@ -222,6 +226,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Banco.edmx</DependentUpon>
       <LastGenOutput>Banco.Context.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Acesso\Banco.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

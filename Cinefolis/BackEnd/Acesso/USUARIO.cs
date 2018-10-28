@@ -20,11 +20,11 @@ namespace BackEnd.Acesso
             this.CONTATO = new HashSet<CONTATO>();
             this.CONTATO1 = new HashSet<CONTATO>();
             this.LIKE_GENERO = new HashSet<LIKE_GENERO>();
-            this.LIKE_LOCAL = new HashSet<LIKE_LOCAL>();
             this.LIKE_MOVIES = new HashSet<LIKE_MOVIES>();
             this.LOCAL = new HashSet<LOCAL>();
             this.MOVIE = new HashSet<MOVIE>();
             this.POSTAGEM = new HashSet<POSTAGEM>();
+            this.LIKE_LOCAL = new HashSet<LIKE_LOCAL>();
         }
     
         public int ID { get; set; }
@@ -42,8 +42,6 @@ namespace BackEnd.Acesso
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LIKE_GENERO> LIKE_GENERO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LIKE_LOCAL> LIKE_LOCAL { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LIKE_MOVIES> LIKE_MOVIES { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LOCAL> LOCAL { get; set; }
@@ -51,5 +49,7 @@ namespace BackEnd.Acesso
         public virtual ICollection<MOVIE> MOVIE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<POSTAGEM> POSTAGEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LIKE_LOCAL> LIKE_LOCAL { get; set; }
     }
 }

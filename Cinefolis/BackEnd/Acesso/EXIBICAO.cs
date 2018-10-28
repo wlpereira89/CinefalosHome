@@ -15,7 +15,7 @@ namespace BackEnd.Acesso
     public partial class EXIBICAO
     {
         public int ID { get; set; }
-        public Nullable<int> ID_EVENTO { get; set; }
+        public int ID_EVENTO { get; set; }
         public Nullable<System.DateTime> HORARIO { get; set; }
     
         public virtual EVENTO EVENTO { get; set; }

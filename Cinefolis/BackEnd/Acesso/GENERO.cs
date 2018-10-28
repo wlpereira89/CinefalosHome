@@ -17,7 +17,6 @@ namespace BackEnd.Acesso
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GENERO()
         {
-            this.LIKE_LOCAL = new HashSet<LIKE_LOCAL>();
             this.LIKE_GENERO = new HashSet<LIKE_GENERO>();
             this.LOCAL_GENERO = new HashSet<LOCAL_GENERO>();
             this.MOVIE_GENERO = new HashSet<MOVIE_GENERO>();
@@ -27,8 +26,6 @@ namespace BackEnd.Acesso
         public string NOME { get; set; }
         public string DESCRICAO { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LIKE_LOCAL> LIKE_LOCAL { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LIKE_GENERO> LIKE_GENERO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

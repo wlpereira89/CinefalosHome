@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -28,13 +28,14 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_MOVIE" Type="int" Nullable="false" />
           <Property Name="ID_LOCAL" Type="int" Nullable="false" />
+          <Property Name="DESCRICAO" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="EXIBICAO">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="ID_EVENTO" Type="int" />
+          <Property Name="ID_EVENTO" Type="int" Nullable="false" />
           <Property Name="HORARIO" Type="datetime" />
         </EntityType>
         <EntityType Name="GENERO">
@@ -57,11 +58,11 @@
         <EntityType Name="LIKE_LOCAL">
           <Key>
             <PropertyRef Name="ID_USUARIO" />
-            <PropertyRef Name="ID_GENERO" />
+            <PropertyRef Name="ID_LOCAL" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_USUARIO" Type="int" Nullable="false" />
-          <Property Name="ID_GENERO" Type="int" Nullable="false" />
+          <Property Name="ID_LOCAL" Type="int" Nullable="false" />
           <Property Name="COMENTARIO" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="LIKE_MOVIES">
@@ -168,7 +169,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EXIBICAO_EVENTO">
-          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="0..1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
           <End Role="EXIBICAO" Type="Self.EXIBICAO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EVENTO">
@@ -179,15 +180,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LIKE_LOCAL_GENERO">
-          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
+        <Association Name="FK_LIKE_LOCAL_LOCAL">
+          <End Role="LOCAL" Type="Self.LOCAL" Multiplicity="1" />
           <End Role="LIKE_LOCAL" Type="Self.LIKE_LOCAL" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="GENERO">
+            <Principal Role="LOCAL">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="LIKE_LOCAL">
-              <PropertyRef Name="ID_GENERO" />
+              <PropertyRef Name="ID_LOCAL" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -422,8 +423,8 @@
             <End Role="EVENTO" EntitySet="EVENTO" />
             <End Role="EXIBICAO" EntitySet="EXIBICAO" />
           </AssociationSet>
-          <AssociationSet Name="FK_LIKE_LOCAL_GENERO" Association="Self.FK_LIKE_LOCAL_GENERO">
-            <End Role="GENERO" EntitySet="GENERO" />
+          <AssociationSet Name="FK_LIKE_LOCAL_LOCAL" Association="Self.FK_LIKE_LOCAL_LOCAL">
+            <End Role="LOCAL" EntitySet="LOCAL" />
             <End Role="LIKE_LOCAL" EntitySet="LIKE_LOCAL" />
           </AssociationSet>
           <AssociationSet Name="FK_LIKE_LOCAL_USUARIO" Association="Self.FK_LIKE_LOCAL_USUARIO">
@@ -495,8 +496,7 @@
             <End Role="POSTAGEM" EntitySet="POSTAGEM" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -528,13 +528,14 @@
           <NavigationProperty Name="EXIBICAO" Relationship="Self.FK_EXIBICAO_EVENTO" FromRole="EVENTO" ToRole="EXIBICAO" />
           <NavigationProperty Name="LOCAL" Relationship="Self.FK_MOVIE_LOCAL_LOCAL" FromRole="EVENTO" ToRole="LOCAL" />
           <NavigationProperty Name="MOVIE" Relationship="Self.FK_MOVIE_LOCAL_MOVIE" FromRole="EVENTO" ToRole="MOVIE" />
+          <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EXIBICAO">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="ID_EVENTO" Type="Int32" />
+          <Property Name="ID_EVENTO" Type="Int32" Nullable="false" />
           <Property Name="HORARIO" Type="DateTime" Precision="3" />
           <NavigationProperty Name="EVENTO" Relationship="Self.FK_EXIBICAO_EVENTO" FromRole="EXIBICAO" ToRole="EVENTO" />
         </EntityType>
@@ -545,7 +546,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="LIKE_LOCAL" Relationship="Self.FK_LIKE_LOCAL_GENERO" FromRole="GENERO" ToRole="LIKE_LOCAL" />
           <NavigationProperty Name="LIKE_GENERO" Relationship="Self.FK_LIKES_GENERO_MOVIE" FromRole="GENERO" ToRole="LIKE_GENERO" />
           <NavigationProperty Name="LOCAL_GENERO" Relationship="Self.FK_LOCAL_GENERO_MOVIE" FromRole="GENERO" ToRole="LOCAL_GENERO" />
           <NavigationProperty Name="MOVIE_GENERO" Relationship="Self.FK_MOVIE_GENERO_GENERO" FromRole="GENERO" ToRole="MOVIE_GENERO" />
@@ -560,18 +560,6 @@
           <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
           <NavigationProperty Name="GENERO" Relationship="Self.FK_LIKES_GENERO_MOVIE" FromRole="LIKE_GENERO" ToRole="GENERO" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK_LIKES_GENERO_USUARIO" FromRole="LIKE_GENERO" ToRole="USUARIO" />
-        </EntityType>
-        <EntityType Name="LIKE_LOCAL">
-          <Key>
-            <PropertyRef Name="ID_USUARIO" />
-            <PropertyRef Name="ID_GENERO" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
-          <Property Name="ID_GENERO" Type="Int32" Nullable="false" />
-          <Property Name="COMENTARIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="GENERO" Relationship="Self.FK_LIKE_LOCAL_GENERO" FromRole="LIKE_LOCAL" ToRole="GENERO" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK_LIKE_LOCAL_USUARIO" FromRole="LIKE_LOCAL" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="LIKE_MOVIES">
           <Key>
@@ -599,6 +587,7 @@
           <NavigationProperty Name="LOCAL_GENERO" Relationship="Self.FK_LOCAL_GENERO_USUARIO" FromRole="LOCAL" ToRole="LOCAL_GENERO" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK_LOCAL_USUARIO" FromRole="LOCAL" ToRole="USUARIO" />
           <NavigationProperty Name="POSTAGEM" Relationship="Self.FK_POSTAGEM_LOCAL" FromRole="LOCAL" ToRole="POSTAGEM" />
+          <NavigationProperty Name="LIKE_LOCAL" Relationship="DBModel1.FK_LIKE_LOCAL_LOCAL" FromRole="LOCAL" ToRole="LIKE_LOCAL" />
         </EntityType>
         <EntityType Name="LOCAL_GENERO">
           <Key>
@@ -674,11 +663,11 @@
           <NavigationProperty Name="CONTATO" Relationship="Self.FK_CONTATOS_USUARIOS" FromRole="USUARIO" ToRole="CONTATO" />
           <NavigationProperty Name="CONTATO1" Relationship="Self.FK_CONTATOS_USUARIOS2" FromRole="USUARIO" ToRole="CONTATO" />
           <NavigationProperty Name="LIKE_GENERO" Relationship="Self.FK_LIKES_GENERO_USUARIO" FromRole="USUARIO" ToRole="LIKE_GENERO" />
-          <NavigationProperty Name="LIKE_LOCAL" Relationship="Self.FK_LIKE_LOCAL_USUARIO" FromRole="USUARIO" ToRole="LIKE_LOCAL" />
           <NavigationProperty Name="LIKE_MOVIES" Relationship="Self.FK_LIKES_MOVIES_USUARIO" FromRole="USUARIO" ToRole="LIKE_MOVIES" />
           <NavigationProperty Name="LOCAL" Relationship="Self.FK_LOCAL_USUARIO" FromRole="USUARIO" ToRole="LOCAL" />
           <NavigationProperty Name="MOVIE" Relationship="Self.FK_MOVIE_USUARIO" FromRole="USUARIO" ToRole="MOVIE" />
           <NavigationProperty Name="POSTAGEM" Relationship="Self.FK_POSTAGEM_USUARIO" FromRole="USUARIO" ToRole="POSTAGEM" />
+          <NavigationProperty Name="LIKE_LOCAL" Relationship="DBModel1.FK_LIKE_LOCAL_USUARIO" FromRole="USUARIO" ToRole="LIKE_LOCAL" />
         </EntityType>
         <Association Name="FK_CONTATOS_USUARIOS">
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
@@ -705,7 +694,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EXIBICAO_EVENTO">
-          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="0..1" />
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
           <End Role="EXIBICAO" Type="Self.EXIBICAO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EVENTO">
@@ -737,18 +726,6 @@
             </Principal>
             <Dependent Role="EVENTO">
               <PropertyRef Name="ID_MOVIE" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LIKE_LOCAL_GENERO">
-          <End Role="GENERO" Type="Self.GENERO" Multiplicity="1" />
-          <End Role="LIKE_LOCAL" Type="Self.LIKE_LOCAL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="GENERO">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="LIKE_LOCAL">
-              <PropertyRef Name="ID_GENERO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -796,18 +773,6 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="LIKE_GENERO">
-              <PropertyRef Name="ID_USUARIO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_LIKE_LOCAL_USUARIO">
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
-          <End Role="LIKE_LOCAL" Type="Self.LIKE_LOCAL" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USUARIO">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="LIKE_LOCAL">
               <PropertyRef Name="ID_USUARIO" />
             </Dependent>
           </ReferentialConstraint>
@@ -939,7 +904,6 @@
           <EntitySet Name="EXIBICAO" EntityType="Self.EXIBICAO" />
           <EntitySet Name="GENERO" EntityType="Self.GENERO" />
           <EntitySet Name="LIKE_GENERO" EntityType="Self.LIKE_GENERO" />
-          <EntitySet Name="LIKE_LOCAL" EntityType="Self.LIKE_LOCAL" />
           <EntitySet Name="LIKE_MOVIES" EntityType="Self.LIKE_MOVIES" />
           <EntitySet Name="LOCAL" EntityType="Self.LOCAL" />
           <EntitySet Name="LOCAL_GENERO" EntityType="Self.LOCAL_GENERO" />
@@ -967,10 +931,6 @@
             <End Role="MOVIE" EntitySet="MOVIE" />
             <End Role="EVENTO" EntitySet="EVENTO" />
           </AssociationSet>
-          <AssociationSet Name="FK_LIKE_LOCAL_GENERO" Association="Self.FK_LIKE_LOCAL_GENERO">
-            <End Role="GENERO" EntitySet="GENERO" />
-            <End Role="LIKE_LOCAL" EntitySet="LIKE_LOCAL" />
-          </AssociationSet>
           <AssociationSet Name="FK_LIKES_GENERO_MOVIE" Association="Self.FK_LIKES_GENERO_MOVIE">
             <End Role="GENERO" EntitySet="GENERO" />
             <End Role="LIKE_GENERO" EntitySet="LIKE_GENERO" />
@@ -986,10 +946,6 @@
           <AssociationSet Name="FK_LIKES_GENERO_USUARIO" Association="Self.FK_LIKES_GENERO_USUARIO">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="LIKE_GENERO" EntitySet="LIKE_GENERO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LIKE_LOCAL_USUARIO" Association="Self.FK_LIKE_LOCAL_USUARIO">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="LIKE_LOCAL" EntitySet="LIKE_LOCAL" />
           </AssociationSet>
           <AssociationSet Name="FK_LIKES_MOVIES_MOVIE" Association="Self.FK_LIKES_MOVIES_MOVIE">
             <End Role="MOVIE" EntitySet="MOVIE" />
@@ -1031,7 +987,52 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="POSTAGEM" EntitySet="POSTAGEM" />
           </AssociationSet>
+          <EntitySet Name="LIKE_LOCAL" EntityType="DBModel1.LIKE_LOCAL" />
+          <AssociationSet Name="FK_LIKE_LOCAL_LOCAL" Association="DBModel1.FK_LIKE_LOCAL_LOCAL">
+            <End Role="LOCAL" EntitySet="LOCAL" />
+            <End Role="LIKE_LOCAL" EntitySet="LIKE_LOCAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE_LOCAL_USUARIO" Association="DBModel1.FK_LIKE_LOCAL_USUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="LIKE_LOCAL" EntitySet="LIKE_LOCAL" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="LIKE_LOCAL">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="ID_LOCAL" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_LOCAL" Type="Int32" Nullable="false" />
+          <Property Name="COMENTARIO" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="LOCAL" Relationship="DBModel1.FK_LIKE_LOCAL_LOCAL" FromRole="LIKE_LOCAL" ToRole="LOCAL" />
+          <NavigationProperty Name="USUARIO" Relationship="DBModel1.FK_LIKE_LOCAL_USUARIO" FromRole="LIKE_LOCAL" ToRole="USUARIO" />
+        </EntityType>
+        <Association Name="FK_LIKE_LOCAL_LOCAL">
+          <End Type="DBModel1.LOCAL" Role="LOCAL" Multiplicity="1" />
+          <End Type="DBModel1.LIKE_LOCAL" Role="LIKE_LOCAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOCAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LIKE_LOCAL">
+              <PropertyRef Name="ID_LOCAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE_LOCAL_USUARIO">
+          <End Type="DBModel1.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <End Type="DBModel1.LIKE_LOCAL" Role="LIKE_LOCAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LIKE_LOCAL">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1058,6 +1059,7 @@
           <EntitySetMapping Name="EVENTO">
             <EntityTypeMapping TypeName="DBModel1.EVENTO">
               <MappingFragment StoreEntitySet="EVENTO">
+                <ScalarProperty Name="DESCRICAO" ColumnName="DESCRICAO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_MOVIE" ColumnName="ID_MOVIE" />
                 <ScalarProperty Name="ID_LOCAL" ColumnName="ID_LOCAL" />
@@ -1088,16 +1090,6 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
                 <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LIKE_LOCAL">
-            <EntityTypeMapping TypeName="DBModel1.LIKE_LOCAL">
-              <MappingFragment StoreEntitySet="LIKE_LOCAL">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-                <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
-                <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1181,6 +1173,16 @@
                 <ScalarProperty Name="ENDERECO" ColumnName="ENDERECO" />
                 <ScalarProperty Name="DETALHES" ColumnName="DETALHES" />
                 <ScalarProperty Name="LINK_FOTO" ColumnName="LINK_FOTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LIKE_LOCAL">
+            <EntityTypeMapping TypeName="DBModel1.LIKE_LOCAL">
+              <MappingFragment StoreEntitySet="LIKE_LOCAL">
+                <ScalarProperty Name="COMENTARIO" ColumnName="COMENTARIO" />
+                <ScalarProperty Name="ID_LOCAL" ColumnName="ID_LOCAL" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

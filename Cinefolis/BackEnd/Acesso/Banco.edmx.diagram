@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e1ffdc8de58f43b3ba3428e993479145" Name="Diagram1">
+      <Diagram DiagramId="e1ffdc8de58f43b3ba3428e993479145" Name="Diagram1" ZoomLevel="61">
         <EntityTypeShape EntityType="DBModel1.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.CONTATO" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.EVENTO" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.EXIBICAO" Width="1.5" PointX="7.5" PointY="24.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.GENERO" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.LIKE_GENERO" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel1.LIKE_LOCAL" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.LIKE_MOVIES" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.LOCAL" Width="1.5" PointX="3" PointY="21.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBModel1.LOCAL_GENERO" Width="1.5" PointX="8.25" PointY="21.5" IsExpanded="true" />
@@ -24,12 +23,10 @@
         <AssociationConnector Association="DBModel1.FK_EXIBICAO_EVENTO" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_MOVIE_LOCAL_LOCAL" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_MOVIE_LOCAL_MOVIE" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel1.FK_LIKE_LOCAL_GENERO" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_LIKES_GENERO_MOVIE" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_LOCAL_GENERO_MOVIE" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_MOVIE_GENERO_GENERO" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_LIKES_GENERO_USUARIO" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel1.FK_LIKE_LOCAL_USUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_LIKES_MOVIES_MOVIE" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_LIKES_MOVIES_USUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_LOCAL_GENERO_USUARIO" ManuallyRouted="false" />
@@ -40,6 +37,9 @@
         <AssociationConnector Association="DBModel1.FK_POSTAGEM_MOVIE" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_POSTAGEM_POSTAGEM" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel1.FK_POSTAGEM_USUARIO" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBModel1.LIKE_LOCAL" Width="1.5" PointX="5.25" PointY="16.375" />
+        <AssociationConnector Association="DBModel1.FK_LIKE_LOCAL_LOCAL" />
+        <AssociationConnector Association="DBModel1.FK_LIKE_LOCAL_USUARIO" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

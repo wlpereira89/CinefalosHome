@@ -37,5 +37,14 @@ namespace BackEnd.Model {
             }
             return true;
         }
+        public static USUARIO procurarUsuario(int idUsuario) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                USUARIO user = db.USUARIO.Find(idUsuario);
+                return user;
+            } catch {
+                throw;
+            }            
+        }
     }
 }

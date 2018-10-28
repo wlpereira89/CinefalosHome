@@ -20,6 +20,7 @@ namespace BackEnd.Acesso
             this.EVENTO = new HashSet<EVENTO>();
             this.LOCAL_GENERO = new HashSet<LOCAL_GENERO>();
             this.POSTAGEM = new HashSet<POSTAGEM>();
+            this.LIKE_LOCAL = new HashSet<LIKE_LOCAL>();
         }
     
         public int ID { get; set; }
@@ -36,5 +37,7 @@ namespace BackEnd.Acesso
         public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<POSTAGEM> POSTAGEM { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LIKE_LOCAL> LIKE_LOCAL { get; set; }
     }
 }
