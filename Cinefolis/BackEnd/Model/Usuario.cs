@@ -57,7 +57,7 @@ namespace BackEnd.Model {
         }
         public static bool realizarLogin (string login, string senha) {
             USUARIO u = procurarUsuario(login);
-            if (GerarHashMd5(u.SENHA) == GerarHashMd5(senha)) {
+            if (GerarHashMd5(u.SENHA).Equals(GerarHashMd5(senha))) {
                 return true;
             }
             return false;
