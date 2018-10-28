@@ -15,13 +15,40 @@ namespace Cinefolis.Views
 		public View1 ()
 		{
             InitializeComponent();
-#pragma warning disable CS0618 // O tipo ou membro é obsoleto
             this.Padding = Device.OnPlatform( // Comando: Separação em plataformas(margens).
                 new Thickness(10, 20, 10, 10),
                 new Thickness(10),
                 new Thickness(10)
                 );
-#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+
+            LoginButton.Clicked += LoginButton_Clicked;
+        }
+
+        private async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(emailEntry.ToString()))
+            {
+                await DisplayAlert("Erro", "digite um email", "Aceitar");
+                emailEntry.Focus();
+            }
+            if (string.IsNullOrEmpty(SenhaEntry.ToString()))
+            {
+                await DisplayAlert("Erro", "digite uma Senha", "Aceitar");
+                emailEntry.Focus();
+            }
+
+            this.Login();
+            //throw new NotImplementedException();
+        }
+
+        private void Login()
+        {
+            throw new NotImplementedException();
+        }
+
+        private Task DisplayAlert(string v1, string v2, string v3)
+        {
+            throw new NotImplementedException();
         }
 
         public static implicit operator Page(View1 v)

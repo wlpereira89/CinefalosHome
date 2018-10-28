@@ -37,8 +37,30 @@
                            VerticalOptions="FillAndExpand"
                            
                            >
-
                     </Entry>
+
+                    <ActivityIndicator x:Name="waitActivityIndicator"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center">
+                        
+                    </ActivityIndicator>
+
+                    <Button x:Name="LoginButton"
+                            BackgroundColor="Green"
+                            Text="Entrar"
+                            TextColor="White"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center">                        
+                    </Button>
+
+                    <Button x:Name="RegisterButton"
+                            BackgroundColor="Blue"
+                            Text="Entrar"
+                            TextColor="White"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center">
+                    </Button>
+                    
                 </StackLayout>
             </ScrollView>
         </StackLayout>
