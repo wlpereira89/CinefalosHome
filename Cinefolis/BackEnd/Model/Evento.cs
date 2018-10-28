@@ -32,5 +32,21 @@ namespace BackEnd.Model {
             }
             return true;
         }
+        public static List<EVENTO> listarEventosPorLocal(LOCAL local) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.EVENTO.Where(f => f.LOCAL.Equals(local)).ToList();
+            } catch {
+                throw;
+            }
+        }
+        public static List<EVENTO> listarEventosPorMovie(MOVIE movie) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.EVENTO.Where(f => f.MOVIE.Equals(movie)).ToList();
+            } catch {
+                throw;
+            }
+        }
     }
 }

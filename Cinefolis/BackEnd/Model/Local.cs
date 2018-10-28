@@ -83,10 +83,40 @@ namespace BackEnd.Model {
             }
             return true;
         }
+        public static bool incluirFilmeLocal(int idLocal, int idFilme) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                m lg = new LOCAL_GENERO {
+                    ID_LOCAL = idLocal,
+                    ID_GENERO = idFilme
+                };
+                db.LOCAL_GENERO.Add(lg);
+                db.SaveChanges();
+            } catch {
+                throw;
+            }
+            return true;
+        }
         public static LOCAL procurarLocal(int idLocal) {
             try {
                 AcessoEntities db = new AcessoEntities();
                 return db.LOCAL.Find(idLocal); 
+            } catch {
+                throw;
+            }
+        }
+        public static List<LOCAL> listarLocais() {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.LOCAL.ToList();
+            } catch {
+                throw;
+            }
+        }
+        public static List<LOCAL> listarLocaisPorNome(string nome) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.LOCAL.Where(l => l.NOME.Equals(nome)).ToList();
             } catch {
                 throw;
             }

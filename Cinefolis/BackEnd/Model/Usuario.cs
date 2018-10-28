@@ -50,7 +50,7 @@ namespace BackEnd.Model {
         public static USUARIO procurarUsuario(string login) {
             try {
                 AcessoEntities db = new AcessoEntities();
-                return db.USUARIO.Where(u => u.LOGIN == login).First();
+                return db.USUARIO.Where(u => u.LOGIN.Equals(login)).First();
             } catch {
                 throw;
             }
