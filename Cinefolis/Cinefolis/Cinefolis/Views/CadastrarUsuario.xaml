@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Cinefolis.Views.CadastrarUsuario">
+  <ContentView.Content>
+      <StackLayout>
+          <Label Text="Cadastrar Usuario" />
+
+            <ScrollView>
+                <StackLayout Spacing="20">
+                    <Label Text="Aplicativo" 
+                           Font="30"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                            FontAttributes="Bold"                           
+                     />
+
+
+                    <Label Text="Digite Seu nome" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="NomeEntry"
+                           Placeholder="Digite seu nome"
+                           IsPassword="True"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+                    </Entry>
+
+                    <Label Text="Digite Seu Sobrenome" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="SobrenomeEntry"
+                           Placeholder="Digite seu Sobrenome"
+                           IsPassword="True"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+                    </Entry>
+
+                    <Label Text="Digite Seu email" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="emailEntry"
+                           Placeholder="Digite seu e-mail"
+                           Keyboard="Email"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+
+                    </Entry>
+
+                    <Label Text="Digite Sua senha" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="SenhaEntry"
+                           Placeholder="Digite sua Senha"
+                           IsPassword="True"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+                    </Entry>
+
+                    <Label Text="Endereco:" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="EnderecoEntry"
+                           Placeholder="Digite Seu enderçeo"
+                           IsPassword="True"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+                    </Entry>
+                    
+                    <Label Text="Detalhes sobre voce:" 
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"                      
+                     />
+                    <Entry x:Name="DetalhesEntry"
+                           Placeholder="Detalhes sobre voce:"
+                           IsPassword="True"
+                           HorizontalOptions="FillAndExpand"   
+                           VerticalOptions="FillAndExpand"
+                           
+                           >
+                    </Entry>
+
+                    <ActivityIndicator x:Name="waitActivityIndicator"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center">
+
+                    </ActivityIndicator>
+
+
+                    <Button x:Name="RegistrarButton"
+                            BackgroundColor="Blue"
+                            Text="Entrar"
+                            TextColor="White"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Center">
+                    </Button>
+
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

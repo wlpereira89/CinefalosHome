@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BackEnd.Model;
+
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,8 +23,17 @@ namespace Cinefolis.Views
                 new Thickness(10)
                 );
 
+            // Botão Login
             LoginButton.Clicked += LoginButton_Clicked;
+            //Botão de registrar.
+            RegisterButton.Clicked += RegisterButton_Clicked;
         }
+
+        private void RegisterButton_Clicked(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        // Registrar.
 
         private async void LoginButton_Clicked(object sender, EventArgs e)
         {
@@ -37,8 +48,10 @@ namespace Cinefolis.Views
                 emailEntry.Focus();
             }
 
-            this.Login();
-            //throw new NotImplementedException();
+            bool login = Usuario.realizarLogin(emailEntry.ToString(), SenhaEntry.ToString());
+
+
+
         }
 
         private void Login()
