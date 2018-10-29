@@ -46,5 +46,31 @@ namespace BackEnd.Model {
                 throw;
             }            
         }
+        public static List<POSTAGEM> procurarPostagensPorLocal(LOCAL local) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.POSTAGEM.Where(p => p.LOCAL.Equals(local)).ToList();
+            } catch {
+                throw;
+            }
+        }
+
+        public static List<POSTAGEM> procurarPostagensPorUsuario(USUARIO user) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.POSTAGEM.Where(p => p.USUARIO.Equals(user)).ToList();
+            } catch {
+                throw;
+            }
+        }
+
+        public static List<POSTAGEM> procurarPostagensPorTexto(string texto) {
+            try {
+                AcessoEntities db = new AcessoEntities();
+                return db.POSTAGEM.Where(p => p.TEXTO.Contains(texto)).ToList();
+            } catch {
+                throw;
+            }
+        }
     }
 }

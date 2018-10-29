@@ -50,7 +50,7 @@ namespace BackEnd.Model {
         public static USUARIO procurarUsuario(string login) {
             try {
                 AcessoEntities db = new AcessoEntities();
-                return db.USUARIO.Where(u => u.LOGIN == login).First();
+                return db.USUARIO.Where(u => u.LOGIN.Equals(login)).First();
             } catch {
                 throw;
             }
@@ -62,7 +62,7 @@ namespace BackEnd.Model {
             }
             return false;
         }
-        public static string GerarHashMd5(string input) {
+        private static string GerarHashMd5(string input) {
             MD5 md5Hash = MD5.Create();
             // Converter a String para array de bytes, que é como a biblioteca trabalha.
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
